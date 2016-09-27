@@ -4180,8 +4180,8 @@ module znd
    			work_isolve, lwork_isolve, iwork_isolve, liwork_isolve, &
    			lrpar, rpar, lipar, ipar, &
    			lout, idid)
-   		if (ierr /= 0) then
-   			write(*,*) 'failed in isolve() call'
+		if (idid < 0) then
+			write(*,*) 'failed in isolve() call, idid=', idid
             if(associated(orig_vars)) deallocate(orig_vars)
             if(associated(orig_derivs)) deallocate(orig_derivs)
    			stop 1
