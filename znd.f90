@@ -4161,8 +4161,12 @@ module znd
    		!t_start = h_search_xmax*10**(log10(h_search_xmax)*((k-1)*1d0/num_steps-1))
    		!t_end = h_search_xmax*10**(log10(h_search_xmax)*(k*1d0/num_steps-1))
    		!should be equivalent to:
-   		t_start = x_start + burn_time**((j-1)*1d0/num_steps)
-   		t_end = x_start + burn_time**(j*1d0/num_steps)
+		if ( j==1 ) then
+			t_start = x_start
+		else
+			t_start = x_start + 0.01* (burn_time/0.01)**((j-1)*1d0/num_steps)
+		endif
+		t_end = x_start + 0.01* (burn_time/0.01)**(j*1d0/num_steps)
 		
    		!write(*,*) x_start, x_end
 
