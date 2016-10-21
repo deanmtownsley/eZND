@@ -4191,8 +4191,8 @@ module znd
    			stop 1
    		end if
    		!Check if we've slowed down too much (good stopping criterion for curvature)
-   		if (rpar(2).lt.1d-2) then
-   			write(*,*) 'ux/cs dropped below 0.01 - exiting integration...'
+   		if (rpar(2).lt.1d-1) then
+   			write(*,*) 'ux/cs dropped below 0.1 - exiting integration...'
    			write(*,*)
    			exit
    		endif
@@ -4307,8 +4307,8 @@ module znd
 						endif
 						
 						!Check if we've slowed down too much (good stopping criterion for curvature)
-						if (rpar(2).lt.1d-2) then
-							write(*,*) 'ux/cs dropped below 0.01 - exiting integration...'
+						if (rpar(2).lt.1d-1) then
+							write(*,*) 'ux/cs dropped below 0.1 - exiting integration...'
 							write(*,*)
 							exit
 						endif
@@ -4374,8 +4374,8 @@ module znd
    					stop 1
    				endif
    				!Check if we've slowed down too much (good stopping criterion for curvature)
-   				if (rpar(2).lt.1d-2) then
-   					write(*,*) 'ux/cs dropped below 0.01 - exiting integration...'
+   				if (rpar(2).lt.1d-1) then
+   					write(*,*) 'ux/cs dropped below 0.1 - exiting integration...'
    					write(*,*)
    					exit
    				endif
@@ -4476,8 +4476,8 @@ module znd
    				exit
    			endif
    			!Check if we've slowed down too much (good stopping criterion for curvature)
-   			if (rpar(2).lt.1d-2) then
-   				write(*,*) 'ux/cs dropped below 0.01 - exiting integration...'
+   			if (rpar(2).lt.1d-1) then
+   				write(*,*) 'ux/cs dropped below 0.1 - exiting integration...'
    				write(*,*)
    				exit
    			endif
@@ -4543,8 +4543,8 @@ module znd
 					exit
 				endif
 				!Check if we've slowed down too much (good stopping criterion for curvature)
-				if (rpar(2).lt.1d-2) then
-					write(*,*) 'ux/cs dropped below 0.01 - exiting integration...'
+				if (rpar(2).lt.1d-1) then
+					write(*,*) 'ux/cs dropped below 0.1 - exiting integration...'
 					write(*,*)
 					exit
 				endif
