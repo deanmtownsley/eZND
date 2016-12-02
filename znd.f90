@@ -2208,7 +2208,7 @@ module znd
          double precision, dimension(species) :: dP_dXi, dE_dXi, d_dP_de_rho_dXi, d2P_dTdXi, d2P_drhodXi
          double precision, dimension(species,species) :: d2P_dXidXj, d2E_dXidXj
          double precision, dimension(species) :: d2p_dx2, d2e_dx2	!2nd derivatives components for readability
-         double precision :: sum_y, sum_yz
+         double precision :: asum, sum_y, sum_yz
          character :: testchar
          integer :: i
          
@@ -2223,12 +2223,18 @@ module znd
          dfdx = 0d0
          grav = 0d0
          
-         !Make sure the abundance pieces of the variable array are >= 0:
-         do i=1,species
-         	x(i) = max(0d0, min(1d0, x(i)))
-         end do
-         
          composition = x(1:species) !Array of just the abundances
+
+         !Make sure the abundance pieces of the variable array are >= 0:
+         asum = 0
+         do i=1,species
+                composition(i) = max(0d0, min(1d0, composition(i)))
+                asum = asum + composition(i)
+         end do
+         do i=1,species
+                 composition(i) = composition(i) / asum
+         end do
+
          
          !Initialize the local thermo variables:
          rho = max(x(species+1), 0d0)
